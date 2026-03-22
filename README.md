@@ -1,36 +1,206 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Employee Management System (EMS SaaS)
 
-## Getting Started
+A modern full-stack **Employee Management System** built with Next.js, Prisma, PostgreSQL, and Tailwind CSS.
+This application allows organizations to manage employees efficiently with a clean SaaS-style UI and secure authentication.
 
-First, run the development server:
+---
+
+##  Features
+
+###  Authentication
+
+* JWT-based authentication
+* Secure login & registration
+* Password hashing using bcrypt
+* Cookie-based session management
+* Route protection (only logged-in users can access protected pages)
+
+---
+
+###  Employee Management
+
+* Add Employee
+* Edit Employee (modal-based UI)
+* Soft Delete (mark as deleted)
+* Restore deleted employees
+* View all employees in a structured table
+
+---
+
+### Search & Filters
+
+* Search employees by name/email
+* Filter by department and status
+* Reset filters and search cleanly
+* Controlled inputs for smooth UX
+
+---
+
+### 🏢 Organization Management
+
+* Create organizations
+* Assign employees to organizations
+* View organization details
+
+---
+
+### Soft Delete System
+
+* Employees are not permanently deleted
+* Separate page for deleted employees
+* Restore functionality
+
+---
+
+### UI/UX (SaaS Style)
+
+* Built with **shadcn/ui + Tailwind CSS**
+* Clean dashboard layout
+* Section-based UI:
+
+  * Add Employee
+  * Filters & Search
+  * Employee Table
+* Gradient background + glow effects
+* Responsive design
+* Loading & empty states
+
+---
+
+### Database Seeding
+
+* Preloaded demo data for testing:
+
+  * User
+  * Organizations
+  * Employees
+
+---
+
+## Tech Stack
+
+* **Frontend:** Next.js (App Router), React, Tailwind CSS, shadcn/ui
+* **Backend:** Next.js API Routes
+* **Database:** PostgreSQL
+* **ORM:** Prisma
+* **Auth:** JWT + Cookies
+* **Validation:** Zod + React Hook Form
+* **Notifications:** Sonner
+
+---
+
+##  Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/msmayur/employee-management-system.git
+cd employee-management-system
+```
+
+---
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 3. Setup Environment Variables
+
+Create `.env` file:
+
+```env
+DATABASE_URL=your_database_url
+JWT_SECRET=your_secret_key
+```
+
+---
+
+### 4. Run Migrations
+
+```bash
+npx prisma migrate dev
+```
+
+---
+
+### 5. Seed Database
+
+```bash
+npx prisma db seed
+```
+
+---
+
+### Demo Credentials
+
+```txt
+Email: admin@test.com
+Password: 123456
+```
+
+---
+
+### 6. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔒 Protected Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* `/employees`
+* `/organizations`
+* `/employees/deleted`
 
-## Learn More
+Only accessible after login.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+ ├── (auth)
+ │    ├── login
+ │    ├── register
+ │
+ ├── (protected)
+ │    ├── employees
+ │    ├── organizations
+ │
+ ├── api/
+ ├── components/
+ ├── lib/
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Key Highlights
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Clean SaaS dashboard UI
+* Fully functional CRUD system
+* Secure authentication system
+* Production-level form handling
+* Proper state management
+* Database seeding for quick testing
+
+---
+
+## 📌 Future Improvements
+
+* Role-based access control
+* Pagination optimization
+* Dashboard analytics
+* Deployment (Vercel + Supabase)
+
+---
+
+## 👨‍💻 Author
+
+M S Mayur
