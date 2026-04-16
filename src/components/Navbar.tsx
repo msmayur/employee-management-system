@@ -13,7 +13,7 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     await axios.post("/api/auth/logout");
-    router.push("/login");
+    window.location.href = "/login";
   };
 
   if (pathname === "/login" || pathname === "/register" || pathname === "/") {
