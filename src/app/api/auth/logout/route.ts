@@ -1,15 +1,13 @@
 import { NextResponse } from "next/server";
 
-export async function POST() {
-  const res = NextResponse.json({ message: "Logged out" });
+export async function GET(req: Request) {
+  const res = NextResponse.redirect(new URL("/login", req.url));
 
-  res.cookies.set("token", "", {
-    httpOnly: true,
-    secure: true,
-    sameSite: "lax", 
-    path: "/login",
-    maxAge: 0, 
-  });
+  // ✅ Properly delete cookie (must match original settings)
+  res.headers.set(
+    "Set-Cookie",
+    "token=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0"
+  );
 
   return res;
 }

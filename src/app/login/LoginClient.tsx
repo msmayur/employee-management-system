@@ -12,11 +12,13 @@ export default function LoginClient() {
 
   const onSubmit = async (data: any) => {
     try {
-      await axios.post("/api/auth/login", data);
-
+      await axios.post("/api/auth/login", data,{
+        withCredentials:true
+      });
       toast.success("Login successful");
-
-      window.location.href = "/"; // ✅ correct
+      setTimeout(() => {
+        window.location.href="/employees"
+      }, 100);
     } catch (err: any) {
       toast.error(err.response?.data?.error || "Login failed");
     }

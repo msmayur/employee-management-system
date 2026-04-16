@@ -11,9 +11,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleLogout = async () => {
-    await axios.post("/api/auth/logout");
-    window.location.href = "/login";
+  const handleLogout = () => {
+    window.location.href = "/api/auth/logout";
   };
 
   if (pathname === "/login" || pathname === "/register" || pathname === "/") {

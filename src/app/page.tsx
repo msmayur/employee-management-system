@@ -4,12 +4,12 @@ import { Users } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
+  const token = (await cookies()).get("token")?.value;
   //if token is not present redirect the user to login page which is accessible to every user
   if (!token) {
     redirect("/login");
   }
+  
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden 
 bg-gradient-to-br from-slate-100 via-white to-blue-100">

@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
     const token = signToken({ userId: user.id });
 
-    const res = NextResponse.json({ message: "Login successful" });
+    const res = NextResponse.redirect(new URL("/", req.url));
 
     res.cookies.set("token", token, {
       httpOnly: true,
