@@ -6,9 +6,9 @@ export async function POST() {
   res.cookies.set("token", "", {
     httpOnly: true,
     secure: true,
-    sameSite: "none",
+    sameSite: "lax", 
     path: "/login",
-    maxAge: 0,
+    maxAge: 0, 
   });
 
   return res;

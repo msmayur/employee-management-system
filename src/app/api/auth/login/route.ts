@@ -25,9 +25,9 @@ export async function POST(req: Request) {
 
     res.cookies.set("token", token, {
       httpOnly: true,
-      secure: true,        
-      sameSite: "none",   
-      path: "/",          
+      secure: true,
+      sameSite: "lax",
+      path: "/",
     });
 
     return res;
