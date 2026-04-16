@@ -17,6 +17,7 @@ export default function Login() {
       await axios.post("/api/auth/login", data);
       toast.success("Login successful");
       router.push("/");
+      router.refresh();
     } catch (err: any) {
       toast.error(err.response?.data?.error || "Login failed");
     }

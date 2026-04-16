@@ -4,8 +4,11 @@ export async function POST() {
   const res = NextResponse.json({ message: "Logged out" });
 
   res.cookies.set("token", "", {
-    expires: new Date(0),
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
     path: "/login",
+    maxAge: 0,
   });
 
   return res;
