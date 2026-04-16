@@ -1,6 +1,6 @@
 import  prisma  from "@/lib/prisma";
 import { NextResponse } from "next/server";
-import { Status } from "../../../../../apps/generated/prisma/enums";
+import { Status } from "@prisma/client";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
